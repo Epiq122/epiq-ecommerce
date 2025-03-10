@@ -1,7 +1,11 @@
+import ThemeToggle from '@/components/shared/theme-toggle';
+
 export default function Home() {
   return (
-    <div className='text-4xl'>
-      <h1>Rob</h1>
+    <div>
+      <div className='w-100 flex justify-end'>
+        <ThemeToggle />
+      </div>
     </div>
   );
 }
