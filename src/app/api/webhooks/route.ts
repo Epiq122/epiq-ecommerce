@@ -66,6 +66,7 @@ export async function POST(req: Request) {
     };
     if (!user) return;
 
+    // Update user in database
     const dbUser = await db.user.upsert({
       where: {
         email: user.email,
@@ -80,6 +81,7 @@ export async function POST(req: Request) {
       },
     });
 
+    // Update user metadata in Clerk
     await clerkClient.users.updateUserMetadata(data.id, {
       privateMetadata: {
         role: dbUser.role || "USER", // Default role to "USER" if not present in dbUser
@@ -92,6 +94,7 @@ export async function POST(req: Request) {
     const data = JSON.parse(body).data;
     if (!data) return;
 
+    // Delete user from database
     await db.user.delete({
       where: {
         id: data.id,
