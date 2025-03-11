@@ -2,6 +2,8 @@ import Logo from '@/components/shared/logo';
 import { FC } from 'react';
 import UserInfo from './user-info';
 import { currentUser } from '@clerk/nextjs/server';
+import SidebarNavAdmin from './nav-admin';
+import { adminDashboardSidebarOptions } from '@/constants/data';
 
 interface SidebarProps {
   isAdmin?: boolean;
@@ -14,6 +16,10 @@ const Sidebar: FC<SidebarProps> = async ({ isAdmin }) => {
       <Logo width='100%' height='180px' />
       <span className='mt-3' />
       {user && <UserInfo user={user} />}
+      {
+        // if admin show admin sidebar
+        isAdmin && <SidebarNavAdmin menuLinks={adminDashboardSidebarOptions} />
+      }
     </div>
   );
 };
