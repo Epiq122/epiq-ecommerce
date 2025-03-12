@@ -17,20 +17,24 @@ export const metadata: Metadata = {
     'Welcome to epiq-ecommerce, your one stop shot for all your epiq needs.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <ClerkProvider>
-      <html lang='en'>
-        <body className={`${inter.className} ${barlow.variable}`}>
+      <html lang='en' suppressHydrationWarning>
+        <body
+          className={`${inter.className} ${barlow.variable}`}
+          suppressHydrationWarning
+        >
           <ThemeProvider
             attribute='class'
             defaultTheme='system'
             enableSystem
             disableTransitionOnChange
+            storageKey='epiq-theme'
           >
             {children}
           </ThemeProvider>
