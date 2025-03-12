@@ -11,7 +11,7 @@ const AdminDashboardLayout = async ({ children }: { children: ReactNode }) => {
     redirect('/');
   return (
     <div className='w-full h-full'>
-      <Sidebar />
+      <Sidebar isAdmin />
       <div className='w-full ml-[300px]'>
         <Header />
         <div className='w-full mt-[75px] p-4'>{children}</div>

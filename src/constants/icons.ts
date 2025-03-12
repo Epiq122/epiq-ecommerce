@@ -67,7 +67,7 @@ export const icons = [
   },
   {
     label: 'Coupons',
-    value: 'coupons',
+    value: 'coupon',
     path: CouponIcon,
   },
   {
